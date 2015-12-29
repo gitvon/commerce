@@ -7,5 +7,5 @@ use CodeCommerce\Product;
 
 class Product extends Model
 {
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description','price'];
 }
