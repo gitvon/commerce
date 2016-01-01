@@ -19,10 +19,12 @@ Route::get('/', function () {
 //Route::get('admin/products', 'AdminProductsController@index');
 
 Route::group(['prefix'=> 'admin'], function() {
-    Route::group(['prefix'=> 'categories'], function(\CodeCommerce\Category $category) {
-        Route::get('/{categories}', 'as'=> 'admincategories', 'AdminCategoriesController@index');
+
+    Route::group(['prefix'=> 'categories'], function() {
+        Route::get('/', ['as'=> 'admincategories', 'uses'=> 'AdminCategoriesController@index']);
     });
-    Route::group(['prefix'=> 'products'], function(\CodeCommerce\Product $product) {
-        Route::get('/{products}', 'as'=> 'adminproduct', 'AdminProductsController@index');
+
+    Route::group(['prefix'=> 'products'], function() {
+        Route::get('/', ['as'=> 'adminproduct', 'uses'=> 'AdminProductsController@index']);
     });
 });
